@@ -1,0 +1,30 @@
+﻿@page "/login"
+
+<PageTitle>Login - Blazor WebSocket Chat</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="d-flex align-center" Style="height: 100vh;">
+    <div class="d-flex-x flex-column-x mud-width-full mb-5">
+        <MudPaper Elevation="25" Class="pa-8" Width="100%" MaxWidth="500px">
+            <div class="d-flex justify-center">
+                <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Size="Size.Large" Style="width:100px; height:100px;" />
+                <MudText Typo="Typo.h5" Class="align-self-center ml-8">Blazor WebSocket Chat</MudText>
+            </div>
+            <MudText Typo="Typo.h5">Login</MudText>
+            <MudAlert>@mMessage</MudAlert>
+            <EditForm Model="@mModel" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <MudTextField @bind-Value="mModel.Username" For="@(() => mModel.Username)" Class="my-3" Label="Username" Variant="Variant.Outlined" AutoFocus=true></MudTextField>
+                <MudTextField @bind-Value="mModel.Password" For="@(() => mModel.Password)" InputType="InputType.Password" Class="my-3" Label="Password" Variant="Variant.Outlined" Placeholder="Just enter anything in the password textbox"></MudTextField>
+                <MudGrid>
+                    <MudItem xs="12" sm="6">
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">Login</MudButton>
+                    </MudItem>
+                    <MudItem xs="12" sm="6">
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" FullWidth="true" OnClick="OnCreateAccountClick">Create Account</MudButton>
+                    </MudItem>
+                </MudGrid>
+                <MudButton Class="mt-3" Variant="Variant.Text" OnClick="OnClickForgotPassword">Forgot password</MudButton>
+            </EditForm>
+        </MudPaper>
+    </div>
+</MudContainer>

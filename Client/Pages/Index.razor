@@ -1,0 +1,11 @@
+﻿@page "/"
+
+<PageTitle>Blazor WebSocket Chat</PageTitle>
+
+<style>
+    .mud-input > textarea.mud-input-root {
+        height: calc(100% - 32px);
+    }
+</style>
+<MudTextField Label="Message" @ref=mTxtMessage @bind-Value=mMessage OnKeyPress="@txtMessage_OnKeyPress" Immediate=true Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Send" OnAdornmentClick="butSend_Click" Placeholder="Type something then press ENTER to send."></MudTextField>
+<MudTextField Lines=10 ReadOnly=true @bind-Value="mLog" Class="mt-5" Label="Message from server" Variant="Variant.Outlined" Style="height: calc(100vh - 175px)"></MudTextField>
